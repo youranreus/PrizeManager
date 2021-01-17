@@ -1,0 +1,20 @@
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    display: block;
+    clear: both;
+}
+.clear::before,.clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+nav a{
+    text-decoration: none;
+    color: #000;
+}
