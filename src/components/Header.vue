@@ -8,7 +8,16 @@
         <nav>
           <router-link to="/">首页</router-link>
           <router-link to="/about">关于</router-link>
-          <router-link to="/u/login">登录</router-link>
+          <router-link to="/u/login" v-if="!Logged">登录</router-link>
+
+          <a-popover trigger="click" v-if="Logged">
+            <template slot="content">
+              <router-link to="/u/me">我的</router-link>
+              <br>
+              <router-link to="/u/logout">登出</router-link>
+            </template>
+            <a><a-avatar>USER</a-avatar></a>
+          </a-popover>
         </nav>
       </div>
     </div>
@@ -16,9 +25,26 @@
 </template>
 
 <script>
-
+import Cookies from 'js-cookie'
 export default {
-  name: "Header"
+  name: "Header",
+  data(){
+    return{
+      Logged : false
+    }
+  },
+  methods:{
+    getStatus(){
+      if(Cookies.get('status') === 'logged')
+      {
+        this.Logged = true
+        console.log('yo');
+      }
+    }
+  },
+  created() {
+    this.getStatus()
+  }
 }
 </script>
 
