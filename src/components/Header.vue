@@ -2,15 +2,15 @@
   <div id="header">
     <div id="header-container" class="clear">
       <div class="left" id="header-left">
-        <h3>团委管理系统</h3>
+        <h3>奖状管理系统</h3>
       </div>
       <div class="right" id="header-right">
         <nav>
           <router-link to="/">首页</router-link>
           <router-link to="/about">关于</router-link>
-          <router-link to="/u/login" v-if="!Logged">登录</router-link>
+          <router-link to="/u/login" v-if="!this.$store.state.logged">登录</router-link>
 
-          <a-popover trigger="click" v-if="Logged">
+          <a-popover trigger="click" v-if="this.$store.state.logged">
             <template slot="content">
               <router-link to="/u/me">我的</router-link>
               <br>
@@ -30,15 +30,14 @@ export default {
   name: "Header",
   data(){
     return{
-      Logged : false
+      Logged : this.$store.state.logged
     }
   },
   methods:{
     getStatus(){
       if(Cookies.get('status') === 'logged')
       {
-        this.Logged = true
-        console.log('yo');
+        this.$store.commit('login',Cookies.get('token'))
       }
     }
   },

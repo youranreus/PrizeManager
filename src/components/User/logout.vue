@@ -9,10 +9,15 @@ import Cookies from 'js-cookie'
 export default {
   name: "logout",
   created() {
-    setTimeout(()=>{
-      Cookies.set('status', ' ')
-      this.$router.push({path:'/u/login'});
-    },"2000");
+    let that = this;
+    that.$nextTick(() => {
+      setTimeout(()=>{
+        Cookies.set('status', ' ')
+        Cookies.set('token', ' ')
+        this.$store.commit('logout')
+        this.$router.push({path:'/u/login'});
+      },"2000");
+    })
   }
 }
 </script>

@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     getStatus(){
-      if(Cookies.get('status') === 'logged') {
+      if(this.$store.state.logged === true) {
         this.$router.push({path: '/u/me'});
       }
     },
@@ -49,7 +49,8 @@ export default {
       if(this.userName && this.pwd)
       {
         Cookies.set('status', 'logged')
-        this.Logged = true
+        Cookies.set('token', 'testToken')
+        this.$store.commit('login','testToken')
         this.message[0] = '登录成功'
         this.message[1] = '正在跳转'
         this.openNotificationWithIcon('success',this.message[0],this.message[1])
