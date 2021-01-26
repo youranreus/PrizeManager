@@ -13,7 +13,11 @@
     display: block;
     clear: both;
 }
-
+.single-page{
+    width: 100%;
+    /*border: 1px solid #eee;*/
+    border-radius: 10px;
+}
 nav a{
     text-decoration: none;
     color: #000;
