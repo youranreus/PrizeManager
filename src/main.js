@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Vuex from 'vuex'
 import router from './router'
+import axios from 'axios'
 
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
@@ -9,6 +10,7 @@ import 'ant-design-vue/dist/antd.css';
 Vue.use(Antd);
 Vue.use(Vuex);
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios
 
 const LoginStatus = new Vuex.Store({
   state: {

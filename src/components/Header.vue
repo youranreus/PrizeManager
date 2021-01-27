@@ -6,8 +6,8 @@
       </div>
       <div class="right" id="header-right">
         <nav>
-          <router-link to="/">首页</router-link>
-          <router-link to="/about">关于</router-link>
+          <router-link to="/p/index">首页</router-link>
+          <router-link to="/p/about">关于</router-link>
           <router-link to="/u/login" v-if="!this.$store.state.logged">登录</router-link>
 
           <a-popover trigger="click" v-if="this.$store.state.logged">

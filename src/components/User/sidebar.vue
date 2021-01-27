@@ -13,12 +13,13 @@
   <div class="section">
     <li>bla bla</li>
   </div>
+
 </div>
 </template>
 
 <script>
 export default {
-name: "sidebar"
+  name: "sidebar"
 }
 </script>
 
